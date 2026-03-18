@@ -9,109 +9,142 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial;
-  background: #0b0b1f;
+  background: #050816;
   color: white;
-  overflow-x: hidden;
 }
 
+/* NAVBAR */
 header {
-  background: linear-gradient(90deg, red, blue);
-  padding: 20px;
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  animation: fadeDown 1s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  background: #111;
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff2e63;
 }
 
 nav a {
-  color: white;
-  padding: 15px 20px;
+  margin-left: 25px;
   text-decoration: none;
+  color: #aaa;
   transition: 0.3s;
 }
 
 nav a:hover {
-  background: red;
-  transform: scale(1.1);
+  color: white;
 }
 
+/* HERO */
 .hero {
-  height: 300px;
+  height: 90vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background: linear-gradient(45deg, red, blue);
-  font-size: 50px;
-  font-weight: bold;
-  animation: fadeIn 2s ease;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #0a1a40, #050816);
 }
 
-.container {
-  padding: 20px;
-}
-
-.banner {
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hero h1 {
+  font-size: 70px;
   background: linear-gradient(90deg, red, blue);
-  margin-bottom: 20px;
-  border-radius: 12px;
-  font-size: 26px;
-  font-weight: bold;
-  transition: 0.4s;
-  animation: fadeUp 1s ease;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.banner:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px red;
+.hero p {
+  color: #aaa;
+  max-width: 700px;
+  margin: 20px 0;
 }
 
-.card {
-  background: #1a1a40;
-  margin-bottom: 15px;
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 18px;
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: 1px solid #ff2e63;
+  cursor: pointer;
   transition: 0.3s;
-  animation: fadeUp 1s ease;
 }
 
-.card:hover {
+.btn.primary {
+  background: linear-gradient(90deg, red, blue);
+  border: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.stat {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  background: rgba(255,255,255,0.02);
+  transition: 0.3s;
+}
+
+.stat:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px blue;
+  box-shadow: 0 0 20px rgba(255,0,0,0.3);
+}
+
+.stat h2 {
+  font-size: 30px;
+  background: linear-gradient(90deg, red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* IMAGE BLOCKS (fake images) */
+.fake-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  border-radius: 15px;
+  background: linear-gradient(90deg, red, blue);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* SECTION */
+.section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #111;
-  margin-top: 20px;
-  animation: fadeUp 1.5s ease;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.9);} 
-  to {opacity: 1; transform: scale(1);} 
-}
-
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(30px);} 
-  to {opacity: 1; transform: translateY(0);} 
-}
-
-@keyframes fadeDown {
-  from {opacity: 0; transform: translateY(-30px);} 
-  to {opacity: 1; transform: translateY(0);} 
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 </style>
@@ -119,26 +152,56 @@ footer {
 
 <body>
 
-<header>CIS LEAGUE</header>
+<header>
+  <div class="logo">CIS</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Teams</a>
+    <a href="#">Table</a>
+    <a href="#">Rules</a>
+  </nav>
+</header>
 
-<nav>
-  <a href="#">Home</a>
-  <a href="#">Teams</a>
-  <a href="#">Table</a>
-  <a href="#">Rules</a>
-</nav>
+<div class="hero">
+  <h1>CIS LEAGUE</h1>
+  <p>Game sports news & league management platform. CIS comeback era begins now.</p>
 
-<div class="hero">CIS COMEBACK</div>
+  <div class="buttons">
+    <div class="btn primary">Latest News</div>
+    <div class="btn">Watch Live</div>
+  </div>
+</div>
 
-<div class="container">
+<div class="stats">
+  <div class="stat">
+    <h2>20,000+</h2>
+    <p>Community Members</p>
+  </div>
 
-  <div class="banner">CIS COMEBACK</div>
-  <div class="banner">CIS COMEBACK</div>
+  <div class="stat">
+    <h2>11,000+</h2>
+    <p>CIS Players</p>
+  </div>
 
-  <div class="card">🔥 CIS COMEBACK - Big Match Coming Soon</div>
-  <div class="card">⚽ CIS COMEBACK - New Season Announced</div>
-  <div class="card">🏆 CIS COMEBACK - League Updates</div>
+  <div class="stat">
+    <h2>6+</h2>
+    <p>Active Leagues</p>
+  </div>
 
+  <div class="stat">
+    <h2>500+</h2>
+    <p>Matches Tracked</p>
+  </div>
+</div>
+
+<div class="fake-img">CIS</div>
+<div class="fake-img">CIS</div>
+
+<div class="section">
+  <h2>Our Story</h2>
+  <p>
+    It all started as a small CIS league. What began as a casual competition quickly grew into something much bigger.
+  </p>
 </div>
 
 <footer>
